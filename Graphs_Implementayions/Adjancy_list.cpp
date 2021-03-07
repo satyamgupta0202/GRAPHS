@@ -26,13 +26,6 @@ class graph {
     }
 };
 
-
-
-
-
-
-
-
 int main(){
 
     graph g(4);
