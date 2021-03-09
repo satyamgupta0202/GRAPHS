@@ -2,7 +2,6 @@
 using namespace std;
 
 class graph {
-
     int v;
     list<int>*l;
 
