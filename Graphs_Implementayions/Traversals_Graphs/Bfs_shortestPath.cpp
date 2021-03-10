@@ -14,22 +14,31 @@ class graphs {
 
     void bfs ( T src){
         queue<T>q;
-        map<T,int>vis;
+        map<T,int>dis;
+       
+        for(auto node_pair :l){
+            T node = node_pair.first;
+            dis[node]=INT_MAX;
+        }
 
-        q.push(src);
-        vis[src]=true;
+         q.push(src);
+        dis[src]=0;
 
         while(!q.empty()){
             T node = q.front();
-            cout<<node<<" ";
+           // cout<<node<<" ";
             q.pop();
             
-             for(int nbr : l[node]){
-                if(!vis[nbr]){
+             for(T nbr : l[node]){
+                if(dis[nbr]==INT_MAX){   ///node not visited
                     q.push(nbr);
-                    vis[nbr]=true;
+                    dis[nbr]=dis[node]+1;
                 }
             }
+        }
+        for(auto node_pair: l){
+            T node = node_pair.first;
+            cout<<"dis of "<<node<<"===" << dis[node]<<endl;
         }
     }
 
@@ -41,9 +50,10 @@ int main(){
 
     graphs<int>g;
     g.insertEdge(0,1);
-    g.insertEdge(1,2);
+    g.insertEdge(0,3);
     g.insertEdge(2,3);
     g.insertEdge(3,4);
+    g.insertEdge(4,5);
     g.bfs(0);
     return 0;
 }
