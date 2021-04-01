@@ -5,8 +5,8 @@ using namespace std;
 template <typename T>
 
 class graphs {
-    map<T,list<T>>l;
     public:
+    map<T,list<T>>l;
     void insertEdge(int x, int y){
         l[x].push_back(y);
         l[y].push_back(x);
